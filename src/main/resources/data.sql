@@ -10,5 +10,5 @@ VALUES
 
 INSERT INTO employee (username, password, company_id)
 VALUES
-('alex', '1234', 1),
-('mary', '2345', 1);
+('alex', '$2b$10$tdLLG4aCpxoi9rBRejs.MuhF0UYgQ5C3JAj2TQqFTPhZId7Skrr9W', 1), /* password - 1234 */
+('mary', '$2b$10$VEkfw.FZtXAhafw7sZ1gzuEpRkUHEPXwf9/5fEUcdF2jcgKe0nJJu', 1); /* password - 2345 */
