@@ -1,3 +1,14 @@
-<p>dashboard works!</p>
-
-{{username}}
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Date</th>
+            <th>Gas Consumption</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tempDataUnit of gasData">
+            <td>{{tempDataUnit.date | date:'mediumDate'}}</td>
+            <td>{{tempDataUnit.dailyConsumption}}</td>
+        </tr>
+    </tbody>
+</table>

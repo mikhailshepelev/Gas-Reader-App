@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DailyGasData } from 'src/app/model/daily-gas-data';
+import { GasDataService } from 'src/app/services/gas-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  username : string = '';
+  gasData: DailyGasData[] = [];
+  username: string = '';
 
-  constructor() { }
+  constructor(private gasDataService : GasDataService) { }
 
   ngOnInit(): void {
-    this.username = sessionStorage.getItem('authenticatedUser')
+    this.username = sessionStorage.getItem('authenticatedUser');
+    this.getDailyGasData();
   }
 
+  getDailyGasData() {
+    this.gasDataService.getDailyGasData(this.username).subscribe(
+      response => {
+        this.gasData = response;
+      }
+    )
+}
 }

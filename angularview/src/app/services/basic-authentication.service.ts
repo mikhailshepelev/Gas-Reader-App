@@ -1,10 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_URL } from '../app.constants';
+import { API_URL, AUTHENTICATED_USER, TOKEN } from '../app.constants';
 import { map } from 'rxjs/operators';
-
-export const TOKEN ='token'
-export const AUTHENTICATED_USER = 'authenticatedUser'
 
 @Injectable({
   providedIn: 'root'

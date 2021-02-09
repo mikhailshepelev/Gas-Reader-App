@@ -9,7 +9,7 @@ import { BasicAuthenticationService } from 'src/app/services/basic-authenticatio
 })
 export class LoginComponent implements OnInit {
 
-  username = 'user'
+  username = ''
   password = ''
   errorMessage = 'Invalid Credentials'
   invalidLogin = false;
@@ -24,8 +24,6 @@ export class LoginComponent implements OnInit {
     this.basicAuthenticationService.executeBasicAuthenticationService(this.username, this.password)
       .subscribe(
         data => {
-          console.log(data)
-          // this.router.navigate(['dashboard', this.username])
           this.router.navigate(['dashboard'])
           this.invalidLogin = false;
         },

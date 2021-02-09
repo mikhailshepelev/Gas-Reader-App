@@ -21,7 +21,7 @@ public class GasDataController {
         this.gasDataService = gasDataService;
     }
 
-    @GetMapping("/{username}/data")
+    @GetMapping("/{username}/gasdata")
     public List<DailyConsumptionDto> getDailyConsumption(@PathVariable String username){
         return gasDataService.getGasConsumptionByDays(username);
     }
