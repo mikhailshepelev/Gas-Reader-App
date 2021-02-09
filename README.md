@@ -12,7 +12,8 @@ Before running an application, make sure that you downloaded and installed:
 ## To setup and run back-end
 1. Open Intellij IDEA and clone this project by clicking "Get from Version Control" in the starting window
 2. Wait until maven will resolved all required dependencies.
-3. Find file "src/main/java/com/msh/gasapp/GasappApplication.java" and click on green arrow near "main" method to run application
+3. [Install Lombok plugin](https://www.jetbrains.com/help/idea/managing-plugins.html) in Intellij IDEA
+4. Find file "src/main/java/com/msh/gasapp/GasappApplication.java" and click on green arrow near "main" method to run application
 
 ## To setup and run front-end
 1. Install angular by executing following command in terminal/command line (you can find more information [here](https://angular.io/guide/setup-local))
