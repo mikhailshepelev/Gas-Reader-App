@@ -9,12 +9,12 @@ Before running an application, make sure that you downloaded and installed:
 2.  [Intellij IDEA Community Edition](https://www.jetbrains.com/idea/download)
 3.  [Node.Js](https://nodejs.org/en/)
 
-### To setup and run back-end
+## To setup and run back-end
 1. Open Intellij IDEA and clone this project by clicking "Get from Version Control" in the starting window
 2. Wait until maven will resolved all required dependencies.
 3. Find file "src/main/java/com/msh/gasapp/GasappApplication.java" and click on green arrow near "main" method to run application
 
-### To setup and run front-end
+## To setup and run front-end
 1. Install angular by executing following command in terminal/command line (you can find more information [here](https://angular.io/guide/setup-local))
 ```bash
 npm install -g @angular/cli
@@ -29,6 +29,16 @@ npm install
 ng serve --open
 ```
 5. Your browser will be opened at http://localhost:4200. You can navigate through app by using this address.
+
+## General information about app
+
+As starting point of application we have 3 fictional companies and 3 employees: 
+
+Company - "Lightning inc." : Employee Username : "alex", password - "1234"
+Company - "Blizzard inc." : Employee Username : "mary", password - "2345"
+Company - "Thunderbolt inc." : Employee Username : "mike", password - "3456"
+
+Application consumer can add any number of companies and employees by adding new rows into "src/main/resources/data.sql" file. Note that password stored in Bcrypt hash. To convert plain password to Bcrypt hash you can use [online converter](https://passwordhashing.com/BCrypt)
 
 ## Author
 [Mikhail Shepelev](https://github.com/mikhailshepelev)
