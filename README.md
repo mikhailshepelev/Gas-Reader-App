@@ -34,9 +34,9 @@ ng serve --open
 
 As starting point of application we have 3 fictional companies and 3 employees: 
 
-Company - "Lightning inc." : Employee Username : "alex", password - "1234"
-Company - "Blizzard inc." : Employee Username : "mary", password - "2345"
-Company - "Thunderbolt inc." : Employee Username : "mike", password - "3456"
+Company - "Lightning inc." : Employee Username : "alex", password - "1234"  
+Company - "Blizzard inc." : Employee Username : "mary", password - "2345"  
+Company - "Thunderbolt inc." : Employee Username : "mike", password - "3456"  
 
 Application consumer can add any number of companies and employees by adding new rows into "src/main/resources/data.sql" file. Note that password stored in Bcrypt hash. To convert plain password to Bcrypt hash you can use [online converter](https://passwordhashing.com/BCrypt)
 
