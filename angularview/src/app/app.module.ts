@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HttpBasicAuthInterceptor } from './services/http-basic-auth.interceptor';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpBasicAuthInterceptor } from './services/http-basic-auth.interceptor
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpBasicAuthInterceptor, multi:true}
