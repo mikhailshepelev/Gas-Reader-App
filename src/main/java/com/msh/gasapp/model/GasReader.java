@@ -1,14 +1,16 @@
 package com.msh.gasapp.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Data
-@Table(name = "company")
-public class Company {
+@Table(name = "gas_reader")
+@NoArgsConstructor
+public class GasReader {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +20,7 @@ public class Company {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "company_id")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "gas_reader_id")
     private List<GasData> gasData;
-
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Employee> employees;
 }

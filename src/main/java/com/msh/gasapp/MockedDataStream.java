@@ -1,8 +1,8 @@
 package com.msh.gasapp;
 
-import com.msh.gasapp.model.Company;
+import com.msh.gasapp.model.GasReader;
 import com.msh.gasapp.model.GasData;
-import com.msh.gasapp.repository.CompanyRepository;
+import com.msh.gasapp.repository.GasReaderRepository;
 import com.msh.gasapp.repository.GasDataRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +18,12 @@ import java.util.List;
 @Configuration
 public class MockedDataStream {
 
-    private CompanyRepository companyRepository;
+    private GasReaderRepository gasReaderRepository;
     private GasDataRepository gasDataRepository;
 
     @Autowired
-    public MockedDataStream(CompanyRepository companyRepository, GasDataRepository gasDataRepository) {
-        this.companyRepository = companyRepository;
+    public MockedDataStream(GasReaderRepository gasReaderRepository, GasDataRepository gasDataRepository) {
+        this.gasReaderRepository = gasReaderRepository;
         this.gasDataRepository = gasDataRepository;
     }
 
@@ -33,7 +33,8 @@ public class MockedDataStream {
             try {
                 seedGasData();
                 log.info("New Gas Data has been added...");
-                Thread.sleep(3_600_000);
+//                Thread.sleep(3_600_000);
+                Thread.sleep(60000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -42,11 +43,11 @@ public class MockedDataStream {
 
     @Transactional
     private void seedGasData() {
-        List<Company> companies = companyRepository.findAll();
+        List<GasReader> readers = gasReaderRepository.findAll();
 
-        for (Company company : companies) {
+        for (GasReader gasReader : readers) {
             GasData tempData = new GasData(new Timestamp(System.currentTimeMillis()), (int) ((Math.random() * (100 - 1)) + 1));
-            tempData.setCompany(company);
+            tempData.setGasReader(gasReader);
             gasDataRepository.saveAndFlush(tempData);
         }
     }

@@ -1,10 +1,10 @@
-INSERT INTO company (name)
+INSERT INTO gas_reader (name)
 VALUES
 ('Lightning inc.'),
 ('Blizzard inc.'),
 ('Thunderbolt inc.');
 
-INSERT INTO gas_data (timestamp, value, company_id)
+INSERT INTO gas_data (timestamp, value, gas_reader_id)
 VALUES
 ('2021-02-01 00:00:00', 967, 1),
 ('2021-02-02 00:00:00', 1045, 1),
@@ -37,8 +37,8 @@ VALUES
 ('2021-02-09 00:00:00', 17567, 3),
 ('2021-02-10 00:00:00', 21008, 3);
 
-INSERT INTO employee (username, password, company_id)
+INSERT INTO employee (username, password)
 VALUES
-('alex', '$2b$10$tdLLG4aCpxoi9rBRejs.MuhF0UYgQ5C3JAj2TQqFTPhZId7Skrr9W', 1), /* password - 1234 */
-('mary', '$2b$10$VEkfw.FZtXAhafw7sZ1gzuEpRkUHEPXwf9/5fEUcdF2jcgKe0nJJu', 2), /* password - 2345 */
-('mike', '$2b$10$u0gKRrD8ACSZ9gigcPTQdetFA8z.ftKzmDUItSyZv43zyc2tBN5mS', 3); /* password - 3456 */
+('alex', '$2b$10$tdLLG4aCpxoi9rBRejs.MuhF0UYgQ5C3JAj2TQqFTPhZId7Skrr9W'), /* password - 1234 */
+('mary', '$2b$10$VEkfw.FZtXAhafw7sZ1gzuEpRkUHEPXwf9/5fEUcdF2jcgKe0nJJu'), /* password - 2345 */
+('mike', '$2b$10$u0gKRrD8ACSZ9gigcPTQdetFA8z.ftKzmDUItSyZv43zyc2tBN5mS'); /* password - 3456 */

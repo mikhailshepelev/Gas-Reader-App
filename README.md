@@ -1,7 +1,7 @@
 # Gas Reader Application
 
 ## About
-This application is simulation of fetching gas usage data from mocked data stream and showing this data in a web-site page. A main parts of the application are fictional gas companies and employees of these companies, who can log in to the site with their personal account and view gas consumption data of their company. Application can accept any number of companies and employees.
+This application is simulation of fetching gas usage data from mocked data stream and showing this data in a web-site page. A main parts of the application are fictional gas companies and employees of these companies, who can log in to the site with their personal account and view gas consumption data of their gasReader. Application can accept any number of companies and employees.
 
 ## Installation and usage
 Before running an application, make sure that you downloaded and installed:

@@ -24,8 +24,8 @@ public class GasData {
     private int value;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "company_id")
-    private Company company;
+    @JoinColumn(name = "gas_reader_id")
+    private GasReader gasReader;
 
     public GasData(Timestamp timestamp, int value) {
         this.timestamp = timestamp;
