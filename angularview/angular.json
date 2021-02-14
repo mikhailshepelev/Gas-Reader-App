@@ -28,7 +28,7 @@
               "node_modules/bootswatch/dist/united/bootstrap.css"
             ],
             "scripts": [
-              "node_modules/chart.js/src/chart.js"
+
             ]
           },
           "configurations": {

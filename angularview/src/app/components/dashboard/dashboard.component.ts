@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chart from 'chart.js';
-import { DailyGasData } from 'src/app/model/daily-gas-data';
 import { GasDataService } from 'src/app/services/gas-data.service';
 
 @Component({
@@ -10,40 +9,81 @@ import { GasDataService } from 'src/app/services/gas-data.service';
 })
 export class DashboardComponent implements OnInit {
 
-  gasData: DailyGasData[] = [];
-  username: string = '';
+  readerNames: string[] = [];
+  dates: Date[] = [];
+  valuesSets: number[][] = [];
 
   constructor(private gasDataService: GasDataService) { }
 
   ngOnInit(): void {
-    this.username = sessionStorage.getItem('authenticatedUser');
     this.getDailyGasData();
   }
 
   getDailyGasData() {
-    this.gasDataService.getDailyGasData(this.username).subscribe(
+    this.gasDataService.getDailyGasData().subscribe(
       response => {
-        this.gasData = response;
-        let dates: Date[] = this.gasData.map(a => a.date);
-        let values: number[] = this.gasData.map(b => b.dailyConsumption);
-        this.renderChart(values, dates);
+        this.readerNames = this.composeReaderNamesArray(response);
+
+        this.dates = this.composeDatesArray(response)
+        
+        for (let i = 0; i < response.length; i++) {
+          this.valuesSets[i] = this.composeValuesSetsArray(response[i].dailyConsumption);
+        }
+
+        this.renderChart();
       }
     )
   }
 
-  renderChart(data, labels) {
+  composeValuesSetsArray (entry : any) {
+    let valueSet: number[] = [];
+    for (let value of entry) {
+      valueSet.push(value.consumption);
+    }
+    return valueSet;
+  }
+
+  composeDatesArray (gasData : any) {
+    let datesSet: Date[] = [];
+    for (let date of gasData[0].dailyConsumption) {
+      datesSet.push(date.date);
+    }
+    return datesSet;
+  }
+
+  composeReaderNamesArray (gasData: any) {
+    let readerNames: string[] = [];
+    for (let name of gasData) {
+      readerNames.push(name.readerName);
+    }
+    return readerNames;
+  }
+
+  renderChart() {
     const canvas = <HTMLCanvasElement>document.getElementById('myChart');
     const ctx = canvas.getContext('2d');
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: labels,
+        labels: this.dates,
         datasets: [{
-          label: 'Gas consumption',
-          data: data,
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        }]
+          label: this.readerNames[0],
+          data: this.valuesSets[0],
+          borderColor: "#c45850",
+          fill: false
+        },
+      {
+        label: this.readerNames[1],
+        data: this.valuesSets[1],
+        borderColor: "#3e95cd",
+        fill: false
+      },
+      {
+        label: this.readerNames[2],
+        data: this.valuesSets[2],
+        borderColor: "#3cba9f",
+        fill: false
+      }]
       },
     });
   }

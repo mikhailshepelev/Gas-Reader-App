@@ -9,5 +9,5 @@ import lombok.Data;
 public class DailyConsumptionDto {
 
     private String date;
-    private int dailyConsumption;
+    private int consumption;
 }

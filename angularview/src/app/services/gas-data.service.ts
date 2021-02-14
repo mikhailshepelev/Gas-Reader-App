@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DailyGasData } from '../model/daily-gas-data';
 import { API_URL } from "../app.constants";
 
 @Injectable({
@@ -10,7 +9,15 @@ export class GasDataService {
 
   constructor(private http : HttpClient) { }
 
-  getDailyGasData(username: string) {
-    return this.http.get<DailyGasData[]>(`${API_URL}/${username}/gasdata`);
+  getDailyGasData() {
+    return this.http.get<any>(`${API_URL}/gasdata`);
   }
+}
+
+interface GetResponseGasData {
+    readerName; 
+    dailyConsumption: {
+      date : string,
+      dailyConsumption: number
+    }
 }

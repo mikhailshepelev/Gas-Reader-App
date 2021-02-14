@@ -33,8 +33,7 @@ public class MockedDataStream {
             try {
                 seedGasData();
                 log.info("New Gas Data has been added...");
-//                Thread.sleep(3_600_000);
-                Thread.sleep(60000);
+                Thread.sleep(3_600_000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
