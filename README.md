@@ -1,7 +1,7 @@
 # Gas Reader Application
 
 ## About
-This application is simulation of fetching gas usage data from mocked data stream and showing this data in a web-site page. A main parts of the application are fictional gas companies and employees of these companies, who can log in to the site with their personal account and view gas consumption data of their gasReader. Application can accept any number of companies and employees.
+This application is simulation of fetching gas usage data from mocked data stream and showing this data in a web-site page. A main parts of the application are fictional gas readers. A data gathered by these readers can be viewed in a main page of site. Employees are able to log in to the site with their personal accounts and view overall gas consumption data of all readers.
 
 ## Installation and usage
 Before running an application, make sure that you downloaded and installed:
@@ -33,13 +33,11 @@ ng serve --open
 
 ## General information about app
 
-As starting point of application we have 3 fictional companies and 3 employees: 
+As starting point of application we have 3 fictional readers and 3 employees: 
 
-Company - "Lightning inc." : Employee Username : "alex", password - "1234"  
-Company - "Blizzard inc." : Employee Username : "mary", password - "2345"  
-Company - "Thunderbolt inc." : Employee Username : "mike", password - "3456"  
-
-Application consumer can add any number of companies and employees by adding new rows into "src/main/resources/data.sql" file. Note that password stored in Bcrypt hash. To convert plain password to Bcrypt hash you can use [online converter](https://passwordhashing.com/BCrypt)
+Employee Username : "alex", password - "1234"  
+Employee Username : "mary", password - "2345"  
+Employee Username : "mike", password - "3456"  
 
 ## Author
 [Mikhail Shepelev](https://github.com/mikhailshepelev)
