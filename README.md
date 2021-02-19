@@ -11,7 +11,7 @@ Before running an application, make sure that you downloaded and installed:
 
 ## To setup and run back-end
 1. Open Intellij IDEA and clone this project by clicking "Get from Version Control" in the starting window
-2. Wait until maven will resolved all required dependencies.
+2. Wait until maven will resolve all required dependencies.
 3. Install ["Lombok"](https://www.jetbrains.com/help/idea/managing-plugins.html) plugin in Intellij IDEA
 4. Find file "src/main/java/com/msh/gasapp/GasappApplication.java" and click on green arrow near "main" method to run application
 
